@@ -1,5 +1,6 @@
 //TODO:
 // Add errorHandler Middleware
+// Change flow to only one secret for token generation, change User Model
 
 const express = require('express');
 var bodyParser = require('body-parser');
@@ -23,7 +24,10 @@ app.get('/', (req, res) => {
 const testRouter = require('./routes/test.router');
 app.use('/test', testRouter);
 
-const signupRouter = require('./routes/login.router');
+const loginRouter = require('./routes/login.router');
+app.use('/login', loginRouter);
+
+const signupRouter = require('./routes/signup.router');
 app.use('/signup', signupRouter);
 
 //DO NOT MOVE, needs to be at the end to catch all routes that are not being handled by server

@@ -1,0 +1,3 @@
+const secret = "Ow1n1sfVVhRROkToAopAZzdL4DgXxRtJR3PwCetZx6MsEypP9yhr6vjUVBM/BTpQKFtNreuc1HWs3axHbMBDBtBwL8cw860GpAl2xaPf/4l1p4ooYuID4wS4e5aIS9gjV8ZiQeJQY9hvp9Z7F59Y2zOpvHp2p8s4PzXvA6BXbxmRThuqAzjyJ0S+S7wxae5PjgKa5hPtGaCawTO3onz2nTmHk2PBTHLVy2+NzEaGLcSGFC+hnYtXP3DMd+mKE/nx9shpgE+iP/jJP0Ojska8kbwHgBHLqkExoucm50182FqvIHpTAbuze1OLHbgiA3sY+1cqHN+DetjLry2339WntA==";
+
+module.exports = secret
