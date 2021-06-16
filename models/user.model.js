@@ -19,6 +19,9 @@ const UserSchema = new Schema({
         type: String,
         required: [true, "Password is required"],
         match: /^[\w!@#\$%\^\&*\)\(+=._-]{6,}$/
+    },
+    cart: {
+
     }
 })
 
