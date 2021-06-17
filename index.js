@@ -21,14 +21,24 @@ app.get('/', (req, res) => {
 	res.send('Welcome to NFT Baazar!');
 });
 
-const testRouter = require('./routes/test.router');
-app.use('/test', testRouter);
+const { privateRoute } = require("./middlewares/privateRoute");
+
+const productRouter = require('./routes/product.router');
+app.use('/product', productRouter);
 
 const loginRouter = require('./routes/login.router');
-app.use('/login', loginRouter);
+app.use('/login', privateRoute, loginRouter);
 
 const signupRouter = require('./routes/signup.router');
 app.use('/signup', signupRouter);
+
+const cartRouter = require("./routes/cart.router");
+app.use("/cart", cartRouter);
+
+// const wishlistRouter = require("./routes/wishlist.router");
+// app.use("/wishlist", wishlistRouter);
+
+
 
 //DO NOT MOVE, needs to be at the end to catch all routes that are not being handled by server
 app.use(routeNotFound);
