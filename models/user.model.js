@@ -18,10 +18,19 @@ const UserSchema = new Schema({
     password: {
         type: String,
         required: [true, "Password is required"],
-        match: /^[\w!@#\$%\^\&*\)\(+=._-]{6,}$/
     },
-    cart: [{ type: Schema.Types.ObjectId, ref: 'Product' }],
-    wishlist: [{ type: Schema.Types.ObjectId, ref: 'Product' }],
+    // cart: [{
+    //         _id: { 
+    //             type: Schema.Types.ObjectId, 
+    //             ref: 'Product'
+    //         },
+    //         quantity: Number
+    //     }],
+    // wishlist: [{ 
+    //         type: Schema.Types.ObjectId, 
+    //         ref: 'Product',
+    //     }],
+        
 })
 
 const User = mongoose.model("User", UserSchema);

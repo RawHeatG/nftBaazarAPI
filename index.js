@@ -6,7 +6,7 @@ const express = require('express');
 var bodyParser = require('body-parser');
 const cors = require('cors');
 
-const { intializeDBConnection } = require('./db/intializeDBConnection');
+const { initializeDBConnection } = require('./database/initializeDbConnection');
 const { routeNotFound } = require('./middlewares/routeNotFound');
 
 const app = express();
@@ -15,25 +15,24 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //DO NOT MOVE, needs to be at top to establish connection before any functions execute
-intializeDBConnection();
+initializeDBConnection();
 
 app.get('/', (req, res) => {
 	res.send('Welcome to NFT Baazar!');
 });
 
 const { privateRoute } = require("./middlewares/privateRoute");
-
 const productRouter = require('./routes/product.router');
-app.use('/product', productRouter);
-
 const loginRouter = require('./routes/login.router');
-app.use('/login', privateRoute, loginRouter);
-
 const signupRouter = require('./routes/signup.router');
-app.use('/signup', signupRouter);
-
+const wishlistRouter = require("./routes/wishlist.router");
 const cartRouter = require("./routes/cart.router");
+
+app.use('/product', productRouter);
+app.use('/login', loginRouter);
+app.use('/signup', signupRouter);
 app.use("/cart", cartRouter);
+app.use("/wishlist", wishlistRouter);
 
 // const wishlistRouter = require("./routes/wishlist.router");
 // app.use("/wishlist", wishlistRouter);
